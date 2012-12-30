@@ -1,0 +1,44 @@
+author: Supermaxman
+main: me.supermaxman.portimort.Portimort
+name: Portimort
+version: '1.0.0'
+commands:
+    tp:
+        description: Teleport to a player
+        usage: /<command> <name>
+    teleport:
+        description: Teleport to a player
+        usage: /<command> <name>
+    tptoggle:
+        description: Toggle teleport status
+        usage: /<command> [status]
+    tpt:
+        description: Toggle teleport status
+        usage: /<command> [status]
+    tpaccept:
+        description: Accept a teleport request
+        usage: /<command>
+    tpdeny:
+        description: Deny a teleport request
+        usage: /<command>
+    tpo:
+        description: Teleport to a player silently and override their teleport status
+        usage: /<command> <name>
+    tpl:
+        description: Teleport to a player and let thor do the rest
+        usage: /<command> <name>
+    tploc:
+        description: Teleports you to a set of coordinates in your world
+        usage: /<command> <0,0,0>
+    tphere:
+        description: Request a player to tp to you
+        usage: /<command> <name>
+    tph:
+        description: Request a player to tp to you
+        usage: /<command> <name>
+    tpohere:
+        description: Force a player to tp to you
+        usage: /<command> <name>
+    tpoh:
+        description: Force a player to tp to you
+        usage: /<command> <name>
