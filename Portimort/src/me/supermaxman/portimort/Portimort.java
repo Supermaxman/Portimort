@@ -8,6 +8,7 @@ import me.supermaxman.portimort.executors.PlayerTpHereOverrideExecutor;
 import me.supermaxman.portimort.executors.PlayerTpLightningExecutor;
 import me.supermaxman.portimort.executors.PlayerTpLocationExecutor;
 import me.supermaxman.portimort.executors.PlayerTpOverrideExecutor;
+import me.supermaxman.portimort.executors.PlayerTpRequestsExecutor;
 import me.supermaxman.portimort.executors.PlayerTpToggleExecutor;
 import net.milkbowl.vault.chat.Chat;
 import net.milkbowl.vault.permission.Permission;
@@ -17,6 +18,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Logger;
 
@@ -31,9 +33,10 @@ public class Portimort extends JavaPlugin {
     public static Portimort pi;
     public static final HashMap<String, Integer> tpstatus = new HashMap<String, Integer>();
     
-    public static final HashMap<String, String> tprequests = new HashMap<String, String>();
-	public static String px = ChatColor.AQUA+"[Portimort]: ";
-	public static String pxe = ChatColor.AQUA+"[Portimort]: "+ChatColor.RED+"Error, ";
+    public static final HashMap<String, ArrayList<String>> tprequests = new HashMap<String, ArrayList<String>>();
+    
+	public static String px = ChatColor.AQUA+"[Pt]: ";
+	public static String pxe = ChatColor.AQUA+"[Pt]: "+ChatColor.RED+"Error, ";
     
     @Override
     public void onDisable() {
@@ -69,6 +72,9 @@ public class Portimort extends JavaPlugin {
         getCommand("tphere").setExecutor(new PlayerTpHereExecutor(this));    
         getCommand("tpoh").setExecutor(new PlayerTpHereOverrideExecutor(this));    
         getCommand("tpohere").setExecutor(new PlayerTpHereOverrideExecutor(this));    
+        getCommand("tpr").setExecutor(new PlayerTpRequestsExecutor(this));    
+        getCommand("tprequests").setExecutor(new PlayerTpRequestsExecutor(this));    
+
         Utils.setupCfg();
         
     }

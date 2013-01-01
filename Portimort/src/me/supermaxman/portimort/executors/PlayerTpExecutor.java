@@ -2,6 +2,7 @@ package me.supermaxman.portimort.executors;
 
 
 import me.supermaxman.portimort.Portimort;
+import me.supermaxman.portimort.Utils;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -54,12 +55,19 @@ public class PlayerTpExecutor extends BaseExecutor {
     }
     
     public static void tpreq(Player player, Player too) {
+    	////
+    	Utils.checkList(player);
+    	Utils.checkList(too);
     	
-    	Portimort.tprequests.put(too.getName(), player.getName());
-    	
-		too.sendMessage(Portimort.px+player.getDisplayName()+ChatColor.AQUA+" requested to teleport to you.");//player requested
-		too.sendMessage(Portimort.px+"Type /tpaccept or /tpdeny.");//player choice
-		player.sendMessage(Portimort.px+"You requested to teleport to "+too.getDisplayName()+ChatColor.AQUA+".");//you requested
+    	if(!Portimort.tprequests.get(too.getName()).contains(player.getName())) {
+        	Portimort.tprequests.get(too.getName()).add(player.getName());
+    		too.sendMessage(Portimort.px+player.getDisplayName()+ChatColor.AQUA+" requested to teleport to you.");//player requested
+    		too.sendMessage(Portimort.px+"Type /tpaccept or /tpdeny.");//player choice
+    		player.sendMessage(Portimort.px+"You requested to teleport to "+too.getDisplayName()+ChatColor.AQUA+".");//you requested
+    	}else {
+    		player.sendMessage(Portimort.px+"You have already requested to teleport to "+too.getDisplayName()+ChatColor.AQUA+".");//you requested
+
+    	}
     }
     public static void tpl(Player player, Player too) {
     	too.getWorld().strikeLightningEffect(too.getLocation());

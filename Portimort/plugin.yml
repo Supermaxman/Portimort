@@ -17,10 +17,10 @@ commands:
         usage: /<command> [status]
     tpaccept:
         description: Accept a teleport request
-        usage: /<command>
+        usage: /<command> [name]
     tpdeny:
         description: Deny a teleport request
-        usage: /<command>
+        usage: /<command> [name]
     tpo:
         description: Teleport to a player silently and override their teleport status
         usage: /<command> <name>
@@ -41,4 +41,10 @@ commands:
         usage: /<command> <name>
     tpoh:
         description: Force a player to tp to you
+        usage: /<command> <name>
+    tpr:
+        description: See your teleport requests
+        usage: /<command> <name>
+    tprequests:
+        description: See your teleport requests
         usage: /<command> <name>

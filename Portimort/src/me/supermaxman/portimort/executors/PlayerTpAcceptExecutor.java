@@ -4,6 +4,7 @@ package me.supermaxman.portimort.executors;
 import java.util.ArrayList;
 
 import me.supermaxman.portimort.Portimort;
+import me.supermaxman.portimort.Utils;
 
 import org.bukkit.entity.Player;
 
@@ -12,26 +13,10 @@ public class PlayerTpAcceptExecutor extends BaseExecutor {
     
     @Override
     protected void run(Player player, String[] args) {
-
-    	if(Portimort.tprequests.containsKey(player.getName())) {
-    		Player from = player.getServer().getPlayerExact(Portimort.tprequests.get(player.getName()));
-    		if(from==null) {
-        		player.sendMessage(Portimort.pxe+"Player may have logged off.");//error, player not found
-    			Portimort.tprequests.remove(player.getName());
-    		}else {
-    			if(tphere.contains(player.getName())) {
-    				tphere.remove(player.getName());
-        			PlayerTpExecutor.tp(player, from);
-        			Portimort.tprequests.remove(player.getName());
-    			}else {
-        			PlayerTpExecutor.tp(from, player);
-        			Portimort.tprequests.remove(player.getName());
-    			}
-
-    		}
-    		
+    	if(args.length==0) {
+        	Utils.handleAccept(player);
     	}else {
-    		player.sendMessage(Portimort.px+"No requests have been submitted.");//error, player not found
+        	Utils.handleAccept(player, args[0]);
     	}
     }
 

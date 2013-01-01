@@ -2,6 +2,7 @@ package me.supermaxman.portimort.executors;
 
 
 import me.supermaxman.portimort.Portimort;
+import me.supermaxman.portimort.Utils;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -48,7 +49,10 @@ public class PlayerTpHereExecutor extends BaseExecutor {
     
     public static void tpreq(Player player, Player from) {
     	
-    	Portimort.tprequests.put(from.getName(),player.getName());
+    	Utils.checkList(from);
+    	
+    	Portimort.tprequests.get(from.getName()).add(player.getName());
+    	
     	PlayerTpAcceptExecutor.tphere.add(from.getName());
 		from.sendMessage(Portimort.px+"You were requested to teleport to "+player.getDisplayName()+ChatColor.AQUA+".");//player requested
 		from.sendMessage(Portimort.px+"Type /tpaccept or /tpdeny.");//player choice
