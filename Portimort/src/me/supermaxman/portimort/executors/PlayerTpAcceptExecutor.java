@@ -16,7 +16,7 @@ public class PlayerTpAcceptExecutor extends BaseExecutor {
     	if(args.length==0) {
         	Utils.handleAccept(player);
     	}else {
-        	Utils.handleAccept(player, args[0]);
+        	Utils.handleAccept(player, args[0].toLowerCase());
     	}
     }
 

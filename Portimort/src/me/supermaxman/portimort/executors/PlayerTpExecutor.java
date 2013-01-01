@@ -60,7 +60,7 @@ public class PlayerTpExecutor extends BaseExecutor {
     	Utils.checkList(too);
     	
     	if(!Portimort.tprequests.get(too.getName()).contains(player.getName())) {
-        	Portimort.tprequests.get(too.getName()).add(player.getName());
+        	Portimort.tprequests.get(too.getName()).add(player.getName().toLowerCase());
     		too.sendMessage(Portimort.px+player.getDisplayName()+ChatColor.AQUA+" requested to teleport to you.");//player requested
     		too.sendMessage(Portimort.px+"Type /tpaccept or /tpdeny.");//player choice
     		player.sendMessage(Portimort.px+"You requested to teleport to "+too.getDisplayName()+ChatColor.AQUA+".");//you requested

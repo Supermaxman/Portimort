@@ -32,7 +32,8 @@ public class Portimort extends JavaPlugin {
     public static Chat chat = null;
     public static Portimort pi;
     public static final HashMap<String, Integer> tpstatus = new HashMap<String, Integer>();
-    
+    private final PortimortListener Listener = new PortimortListener(this);
+
     public static final HashMap<String, ArrayList<String>> tprequests = new HashMap<String, ArrayList<String>>();
     
 	public static String px = ChatColor.AQUA+"[Pt]: ";
@@ -55,6 +56,7 @@ public class Portimort extends JavaPlugin {
             this.setEnabled(false);
             return;
         }
+        getServer().getPluginManager().registerEvents(Listener, this);
         log.info("All systems go! Version:" + this.getDescription().getVersion());
         getCommand("tp").setExecutor(new PlayerTpExecutor(this));
         getCommand("teleport").setExecutor(new PlayerTpExecutor(this));
