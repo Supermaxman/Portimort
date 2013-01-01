@@ -7,7 +7,6 @@ import me.supermaxman.portimort.executors.PlayerTpAcceptExecutor;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
 
@@ -20,7 +19,7 @@ public class PortimortListener implements Listener {
 
 
 
-    @EventHandler(priority = EventPriority.LOWEST)
+    @EventHandler
     public void onPlayerLeave(PlayerQuitEvent event) {
         Player player = event.getPlayer();
         
