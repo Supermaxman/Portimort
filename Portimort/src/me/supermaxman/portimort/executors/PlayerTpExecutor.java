@@ -19,7 +19,7 @@ public class PlayerTpExecutor extends BaseExecutor {
     	}
     	String s = args[0];
     	Player too = player.getServer().getPlayer(s);
-    	if(too==null) {
+    	if(too==null || player.canSee(too) == false) {
     		player.sendMessage(Portimort.pxe+"Player not found.");//error, player not found
     		return;
     	}

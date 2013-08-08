@@ -1,7 +1,7 @@
-author: Supermaxman
+author: Supermaxman, Aoloebio
 main: me.supermaxman.portimort.Portimort
 name: Portimort
-version: '1.0.0'
+version: '1.0.2'
 commands:
     tp:
         description: Teleport to a player
